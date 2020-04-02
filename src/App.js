@@ -34,6 +34,7 @@ class App extends React.Component{
     onDictate={ this.handleDictate }
     onProgress={ this.handleProgress }
   >
+    
     Start/stop
   </DictateCheckbox>
       <SpeechRecognizer
