@@ -10,13 +10,23 @@ class App extends React.Component{
    this.state = {isauto:false}
    this.handleStart = this.handleStart.bind(this)
    this.handleStop = this.handleStop.bind(this)
+   this.fget = {complete:false, status:false}
  }
   handleStart(){
+
     this.setState((state, props) => {
       return {isauto: true};
     });
 }
-
+refe(){
+  setInterval(() => {
+    if(this.fget.complete){
+      this.handleStop();
+      console.log(this.fget.status)
+      this.handleStart();
+    }
+  }, 1000);
+}
 
   handleStop(e){
     this.setState((state, props) => {
@@ -24,9 +34,14 @@ class App extends React.Component{
     });
 }
 
+componentDidMount(){
+  //this.refe()
+}
+
   render() {
   return (
     <div className="App">
+
    <header className="App-header">
    <DictateCheckbox
     className="my-dictate-checkbox"
@@ -41,8 +56,15 @@ class App extends React.Component{
         startSpeechRecognition={this.state.isauto}
         onError={this.onError}
         continuous={false}
+        lang="en-US"
       >
           {({status, results, formattedResults, transcripts, error}) => {
+            if(results){
+              this.fget.complete =formattedResults[0].isFinal
+              this.fget.status =status
+            
+              }
+            
             return (
               <>
                 {transcripts && transcripts.length && <p>{transcripts.join(', ')}</p>}
