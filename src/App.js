@@ -49,7 +49,6 @@ componentDidMount(){
     onDictate={ this.handleDictate }
     onProgress={ this.handleProgress }
   >
-    
     Start/stop
   </DictateCheckbox>
       <SpeechRecognizer
