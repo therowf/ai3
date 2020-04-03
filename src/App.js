@@ -56,7 +56,7 @@ componentDidMount(){
         startSpeechRecognition={this.state.isauto}
         onError={this.onError}
         continuous={false}
-        lang="en-US"
+        lang="en-CA"
       >
           {({status, results, formattedResults, transcripts, error}) => {
             if(results){
