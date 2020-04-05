@@ -5,12 +5,11 @@
   "dependencies": {
     "express": "^4.17.1",
     "express-favicon": "^2.0.1",
+    "node-openvpn": "^0.1.1",
     "react": "^16.13.1",
-    "react-dictate-button": "^1.2.2",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
-    "react-speech": "^1.0.2",
-    "react-speech-recognizer-component": "^1.0.7"
+    "react-speech": "^1.0.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -18,7 +17,7 @@
     "@testing-library/user-event": "^7.1.2"
   },
   "scripts": {
-    "start":"node server.js",
+    "start": "node server.js",
     "dev": "react-scripts start",
     "devbuild": "react-scripts build",
     "test": "react-scripts test",

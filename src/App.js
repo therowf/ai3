@@ -1,9 +1,9 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { SpeechRecognizer } from 'react-speech-recognizer-component';
+
 import Speech from 'react-speech';
-import { DictateCheckbox } from 'react-dictate-button';
+
 class App extends React.Component{
  constructor(porps){
    super(porps)
@@ -35,7 +35,23 @@ refe(){
 }
 
 componentDidMount(){
-  //this.refe()
+  var speechRecognitionConstructor = window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition || window.oSpeechRecognition;
+
+  var recognition = new speechRecognitionConstructor();
+      recognition.continuous = false;
+      recognition.lang = 'en-US';
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+     
+  
+      var synth = window.speechSynthesis || window.webkitSpeechSynthesis;
+
+      var utterance1 = new SpeechSynthesisUtterance('How about we say this now? This is quite a long sentence to say.');
+      var utterance2 = new SpeechSynthesisUtterance('We should say another sentence too, just to be on the safe side.');
+      
+      synth.speak(utterance1);
+      synth.speak(utterance2);
+  
 }
 
   render() {
@@ -43,34 +59,8 @@ componentDidMount(){
     <div className="App">
 
    <header className="App-header">
-   <DictateCheckbox
-    className="my-dictate-checkbox"
-    grammar="#JSGF V1.0; grammar districts; public <district> = Redmond | Bellevue;"
-    onDictate={ this.handleDictate }
-    onProgress={ this.handleProgress }
-  >
-    Start/stop
-  </DictateCheckbox>
-      <SpeechRecognizer
-        startSpeechRecognition={this.state.isauto}
-        onError={this.onError}
-        continuous={false}
-        lang="en-CA"
-      >
-          {({status, results, formattedResults, transcripts, error}) => {
-            if(results){
-              this.fget.complete =formattedResults[0].isFinal
-              this.fget.status =status
-            
-              }
-            
-            return (
-              <>
-                {transcripts && transcripts.length && <p>{transcripts.join(', ')}</p>}
-              </>
-            );
-          }}
-      </SpeechRecognizer>
+   
+     
       <button onClick={this.handleStart}>start</button>
       <button onClick={this.handleStop}>stop</button>
       
