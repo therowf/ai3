@@ -54,7 +54,7 @@ componentDidMount(){
    <SpeechRecognizer
         startSpeechRecognition={this.state.isauto}
         onError={this.onError}
-        continuous={false}
+        continuous={true}
       >
           {({status, results, formattedResults, transcripts, error}) => {
             return (
