@@ -46,7 +46,7 @@ componentDidMount(){
    <header className="App-header">
    
    <SpeechRecognizer
-        startSpeechRecognition={true}
+        startSpeechRecognition={this.state.isauto}
         onError={this.onError}
         continuous={false}
       >
