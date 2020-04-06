@@ -9,7 +9,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
-    "react-speech": "^1.0.2"
+    "react-speech": "^1.0.2",
+    "react-speech-recognizer-component": "^1.0.7"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
