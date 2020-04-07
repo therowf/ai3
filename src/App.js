@@ -57,6 +57,7 @@ componentDidMount(){
         continuous={true}
       >
           {({status, results, formattedResults, transcripts, error}) => {
+            console.log(formattedResults)
             return (
               <>
                 {transcripts && transcripts.length && <p>{transcripts.join(', ')}</p>}
